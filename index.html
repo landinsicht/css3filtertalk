@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<title>CSS filters</title>
+	
+	<link href="slideshow.css" rel="stylesheet" />
+	<link href="theme.css" rel="stylesheet" />
+	<link href="talk.css" rel="stylesheet" />
+	<script src="prefixfree.min.js"></script>
+</head>
+<body>
+<div id="bg-img"></div>
+<section>
+	<header class="slide">
+		<h1>CSS filters</h1>
+	</header>
+	
+	<section class="slide" id="bg-slider">
+		<input id='blur-range' type="range" min="0" max="35" value="35" step="5" data-subject="#bg-img" data-style="filter:blur({value}px)" class="css-control" />
+	</section>
+	<section class="slide" id="filter-functions" title="filter Funktionen">
+		<h2>filter: &lt;filter-function&gt;*</h2>
+		<ul>
+			<li class="delayed">blur</li>
+			<li class="delayed">brightness</li>
+			<li class="delayed">contrast</li>
+			<li class="delayed">grayscale</li>
+			<li class="delayed">hue-rotate</li>
+			<li class="delayed">invert</li>
+			<li class="delayed">opacity</li>
+			<li class="delayed">saturate</li>
+			<li class="delayed">sepia</li>
+			<li class="delayed">drop-shadow</li>
+			<li class="delayed">url</li>
+		</ul>
+	</section>
+	
+	<section class="slide filter-showcase" id="filter-showcase">
+		<img src="img/boat2.jpg" id="showcase-img" />
+		<textarea class="snippet" data-subject="#showcase-img"></textarea>
+	</section>
+	<section class="slide filter-showcase" id="filter-showcase-dropshadow">
+		<img src="img/mario.png" id="mario-img" />
+		<textarea class="snippet" data-subject="#mario-img"></textarea>
+	</section>
+	<section class="slide" id="examples">
+		<h2>Weitere Beispiele</h2>
+		<div class="social-icons">
+			<img src="img/social/skype.png" />
+			<img src="img/social/facebook.png" />
+			<img src="img/social/flickr.png" />
+			<img src="img/social/youtube.png" />
+			<img src="img/social/dribbble.png" />
+		</div>
+		<p class="blurred-text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. </p>
+	</section>
+	<section class="slide filter-showcase">
+		<video id="vid" autoplay loop>
+			<source src="img/deer.mp4" type="video/mp4" />
+			Your browser does not support the video tag.
+		</video>
+		<textarea class="snippet" data-subject="#vid"></textarea>
+	</section>
+	<section class="slide" id="trivia">
+		<h2>Trivia</h2>
+		<ul>
+			<li class="delayed">stammen aus SVG Welt</li>
+			<li class="delayed">Reihenfolge wichtig</li>
+			<li class="delayed">blur() &amp; drop-shadow() evtl. Performance-lastig</li>
+			<li class="delayed">funktionieren auf jedem HTML-Element</li><br />
+			<li class="delayed">Browser-Unterstützung: <a href="http://caniuse.com/#feat=css-filters" target="_blank">www.caniuse.com/#feat=css-filters</a></li>
+		</ul>
+	</section>
+</section>
+
+<footer class="slide" title="Danke!">
+	<h1>Vielen Dank!</h1>
+</footer>
+
+<script src="slideshow.js"></script>
+<script src="plugins/css-edit.js"></script>
+<script src="plugins/css-snippets.js"></script>
+<script src="plugins/css-controls.js"></script>
+<script src="plugins/code-highlight.js"></script>
+<script>
+var slideshow = new SlideShow();
+
+var snippets = document.querySelectorAll('.snippet');
+for(var i=0; i<snippets.length; i++) {
+	new CSSSnippet(snippets[i]);
+}
+
+var cssControls = document.querySelectorAll('.css-control');
+for(var i=0; i<cssControls.length; i++) {
+	new CSSControl(cssControls[i]);
+}
+</script>
+	
+</body>
+</html>
